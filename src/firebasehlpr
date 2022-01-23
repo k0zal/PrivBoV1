@@ -1,0 +1,26 @@
+    // Query example to use as search function later on.
+    const que = query(collectionRef, where("lookingInArea", "==", "mölndal"))
+
+    // Query to fetch a single document inside "ads" using the id in the second parameter as an identifier but can be anything, not restricted to id.
+    const docRef = doc(db, "ads", "DesI55lCSPyiqmVHGBBK")
+    getDoc(docRef).then((doc) => {
+    console.log(doc.data(),doc.id)
+    }
+
+    // Subscribe to changes in the certain document provided with realtime updates
+    onSnapshot(docRef, (doc) => {
+    console.log(doc.data(), doc.id) })
+
+    // Unsubscribe to changes in the certain document provided
+    
+
+    // Function to update a document inside the "ads" using the state holding the data
+    function updateDocument(){
+        const docRef = doc(db, "ads", newDataState.id)
+
+        updateDoc(docRef, {
+            description:"new description"
+        }).then(() => {
+            
+        })
+    }
